@@ -4,6 +4,7 @@ import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mRunCountDownText;
     private TextView mRestTimeText;
     private Button mActionButton;
+    private View mRootView;
 
     private int mRunTimeSetting;
     private int mRestTimeSetting;
@@ -38,8 +40,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_main);
 
+        mRootView = findViewById(android.R.id.content);
         mTotalRunText = findViewById(R.id.total_run_time);
         mRunCountText = findViewById(R.id.run_count);
         mRunCountDownText = findViewById(R.id.run_countdown);
@@ -107,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         mRunCount++;
+        mRootView.setBackgroundColor(getResources().getColor(R.color.runColor));
         mActionButton.setText(getResources().getString(R.string.button_rest));
         mRunCountDownTime = mRunTimeSetting;
 
@@ -123,7 +128,9 @@ public class MainActivity extends AppCompatActivity {
                     if (mActionButton.isEnabled()) {
                         mActionButton.setEnabled(false);
                     }
-                } else {
+                }
+
+                if (mRunCountDownTime <= 0) {
                     mRunCountDownTime = 0;
                     if (!mActionButton.isEnabled()) {
                         mActionButton.setEnabled(true);
@@ -145,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
             mRunTimer.cancel();
         }
 
+        mRootView.setBackgroundColor(getResources().getColor(R.color.restColor));
         mActionButton.setText(getResources().getString(R.string.button_run));
         mRunCountDownTime = mRunTimeSetting;
 

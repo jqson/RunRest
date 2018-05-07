@@ -15,6 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/run_count"
         android:textSize="60dp"
+        android:textColor="@color/colorBlack"
         android:text="0:00" />
 
     <TextView
@@ -26,6 +27,7 @@
         app:layout_constraintTop_toBottomOf="@+id/total_run_time"
         app:layout_constraintBottom_toTopOf="@+id/run_countdown"
         android:textSize="50dp"
+        android:textColor="@color/colorBlack"
         android:text="0" />
 
     <TextView
@@ -37,6 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/run_count"
         app:layout_constraintBottom_toTopOf="@+id/rest_time"
         android:textSize="40dp"
+        android:textColor="@color/colorBlack"
         android:text="2:00" />
 
     <TextView
@@ -48,11 +51,12 @@
         app:layout_constraintTop_toBottomOf="@+id/run_countdown"
         app:layout_constraintBottom_toTopOf="@+id/action_button"
         android:textSize="40dp"
+        android:textColor="@color/colorBlack"
         android:text="0:00" />
 
     <Button
         android:id="@+id/action_button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
