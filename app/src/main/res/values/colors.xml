@@ -4,7 +4,10 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
     <color name="runColor">#FF6666</color>
+    <color name="runExtraColor">#FFFF66</color>
     <color name="restColor">#66FF66</color>
+    <color name="restExtraColor">#6666FF</color>
 </resources>
